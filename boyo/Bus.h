@@ -15,8 +15,8 @@ public:
 	uint8_t RAM[8192];
 	uint8_t VRAM[8192];
 
-	void attach_cpu(CPU* cpu);
-	void insert_cartridge(Cartridge* cartridge);
+	void attach_cpu(CPU& cpu);
+	void insert_cartridge(Cartridge& cartridge);
 };
 
 #endif

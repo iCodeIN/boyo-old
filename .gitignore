@@ -1,0 +1,6 @@
+Debug
+Release
+Roms
+*.vcxproj.user
+.vs/
+*.log

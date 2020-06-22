@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Bus.h"
 #include "CPU.h"
 
@@ -11,13 +12,15 @@ int main(int argc, char* argv[])
         return 1;
     }
 
+    std::string filename(argv[1]);
+
     Bus bus;
     CPU cpu;
-    bus.attach_cpu(&cpu);
+    bus.attach_cpu(cpu);
 
     Cartridge cartridge;
-    Cartridge::load_file(&cartridge, argv[1]);
-    bus.insert_cartridge(&cartridge);
+    Cartridge::load_file(cartridge, filename);
+    bus.insert_cartridge(cartridge);
 
     //while (true) {
     //    cpu.execute(CYCLES_PER_FRAME);
