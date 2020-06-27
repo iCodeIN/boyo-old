@@ -22,9 +22,9 @@ int main(int argc, char* argv[])
     Cartridge::load_file(cartridge, filename);
     bus.insert_cartridge(cartridge);
 
-    //while (true) {
-    //    cpu.execute(CYCLES_PER_FRAME);
-    //}
+    while (true) {
+        cpu.execute(CYCLES_PER_FRAME);
+    }
 
     return 0;
 }
