@@ -18,6 +18,7 @@ public:
 	void attach_cpu(CPU& cpu);
 	void insert_cartridge(Cartridge& cartridge);
 	uint8_t read(uint16_t address);
+	void write(uint16_t address, uint8_t data);
 };
 
 #endif
