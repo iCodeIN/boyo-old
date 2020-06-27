@@ -12,8 +12,8 @@ class Bus
 public:
 	CPU* cpu;
 	Cartridge* cartridge;
-	uint8_t RAM[8192];
-	uint8_t VRAM[8192];
+	uint8_t RAM[0x2000];
+	uint8_t VRAM[0x2000];
 
 	void attach_cpu(CPU& cpu);
 	void insert_cartridge(Cartridge& cartridge);

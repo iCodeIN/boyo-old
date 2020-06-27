@@ -10,7 +10,7 @@ int Cartridge::load_file(Cartridge& cartridge, const std::string& filename)
     if (!file.good())
         return 1;
 
-    int size = std::min(static_cast<int>(file.tellg()), 16384);
+    int size = std::min(static_cast<int>(file.tellg()), 0x4000);
     auto data = new unsigned char[size];
     file.seekg(std::ios::beg);
     file.read((char*)(&data[0]), size);

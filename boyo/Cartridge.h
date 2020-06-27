@@ -7,7 +7,7 @@
 class Cartridge
 {
 public:
-	uint8_t ROM[16384];
+	uint8_t ROM[0x4000];
 	static int load_file(Cartridge& cartridge, const std::string& filename);
 };
 
