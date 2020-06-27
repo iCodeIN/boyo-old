@@ -21,6 +21,8 @@ private:
 	int (CPU::* opcode_table[16][16])();
 
 	int execute();
+	void increment_pc(int bytes);
+	int NOP();
 	int LD_imm8(int reg);
 	int LD_06();
 	int LD_0E();

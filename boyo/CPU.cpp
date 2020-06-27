@@ -4,6 +4,7 @@ CPU::CPU()
 {
 	pc = 0x100;
 	sp = 0xFFFE;
+	opcode_table[0x0][0x0] = &CPU::NOP;
 	opcode_table[0x0][0x6] = &CPU::LD_06;
 	opcode_table[0x0][0xE] = &CPU::LD_0E;
 	opcode_table[0x1][0x6] = &CPU::LD_16;
@@ -25,10 +26,21 @@ int CPU::execute()
 	return (this->*opcode_table[opcode >> 4][opcode & 0xF])();
 }
 
+void CPU::increment_pc(int bytes = 1)
+{
+	pc += bytes;
+}
+
+int CPU::NOP()
+{
+	increment_pc();
+	return 4;
+}
+
 int CPU::LD_imm8(int reg)
 {
 	registers[reg] = bus->read(pc + 8);
-	pc += 16;
+	increment_pc(2);
 	return 8;
 }
 
